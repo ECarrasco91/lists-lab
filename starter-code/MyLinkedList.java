@@ -12,15 +12,46 @@ public class MyLinkedList<T> implements Iterable<T>{
 	}
 
 	public boolean remove(int index) {
-		//to-do
+		if (index > size) {
+			return false;
+		} else {
+			Node<T> headNode = head;
+			Node<T> nextNode;
+			for (int i = 0; i < index; i++) {
+				headNode = headNode.getNext();
+			}
+			nextNode = headNode.getNext();
+			headNode.setNext(nextNode);
+			size--;
+			return true;
+		}
 	}
 
 	public T get(int index) {
-		//to-do
+		if (index > size) {
+			return null;
+		} else {
+			Node<T> headNode = head;
+			for (int i = 0; i < index; i++) {
+				headNode = headNode.getNext();
+			}
+			return headNode.getData();
+		}
 	}
 
 	public void add(T obj) {
-		//to-do
+		if (head == null) {
+			head = new Node<T>(obj);
+		} else {
+			Node<T> headNode = head;
+			Node<T> nextNode = headNode.getNext();
+			while (nextNode != null) {
+				headNode = headNode.getNext();
+				nextNode = headNode.getNext();
+			}
+			headNode.setNext(new Node<>(obj));
+			size++;
+		}
 	}
 
 	//The methods below are bonus
