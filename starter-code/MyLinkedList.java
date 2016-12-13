@@ -35,7 +35,7 @@ public class MyLinkedList<T> implements Iterable<T>{
 			for (int i = 0; i < index; i++) {
 				headNode = headNode.getNext();
 			}
-			return headNode.getData();
+			return (T) headNode.getData();
 		}
 	}
 
